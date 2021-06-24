@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import Formulario from './FormularioCalculo'
 import VerImc from './VerIMC'
+import BasculaIMC from './BasculaIMC'
 
 function CuerpoCalculo (prosp) {
   return (
@@ -18,7 +19,9 @@ function CuerpoCalculo (prosp) {
         <Col style={{margin:"auto"}}>
             <VerImc/>
         </Col>
-        <Col></Col>
+        <Col>
+            <BasculaIMC/>
+        </Col>
       </Row>
     </Card.Body>
   )
