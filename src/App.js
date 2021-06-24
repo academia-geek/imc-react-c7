@@ -1,12 +1,13 @@
 import Calculador from './components/calculador/CalculadorApp'
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 
 function App() {
   //JSX
   return (
-    <div className="App">
+    <Container className="mt-3">
       <Calculador/>
-    </div>
+    </Container>
   );
 }
 
