@@ -11,15 +11,10 @@ class CuerpoCalculo extends React.Component {
       imc : 0
     }
   }
-  calcularIMC = (peso, altura) => this.setState({imc : (altura / peso)})
+  calcularIMC = (peso, altura) => this.setState({imc : (peso/Math.pow(altura,2)).toFixed(2)})
   render () {
     return (
       <Card.Body>
-        <Row>
-          <Col>
-            <b>IMC: {this.state.imc}</b>
-          </Col>
-        </Row>
         <Row>
           <Col>
             <Formulario
@@ -31,7 +26,7 @@ class CuerpoCalculo extends React.Component {
             />
           </Col>
           <Col style={{ margin: 'auto' }}>
-            <VerImc />
+            <VerImc CuerpoCalculoIMC = {this} />
           </Col>
           <Col>
             <BasculaIMC />

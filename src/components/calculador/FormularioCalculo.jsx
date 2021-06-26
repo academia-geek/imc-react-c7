@@ -4,24 +4,33 @@ import { Button, Form } from 'react-bootstrap';
 class FormularioCalculo extends React.Component {
   constructor(props){
       super()
-      console.log(props);
-      this.nombre = "Carlos"
+      this.state = {
+        peso : 0,
+        altura : 0
+      }
+  }
+
+  handlerChangeIMC = (e) => {
+    const state = this.state
+    state[e.target.id] = e.target.value
+    this.setState(state, ()=>{
+      this.props.calcularIMC(this.state.peso,this.state.altura)
+    })
   }
 
   render () {
     return (
       <Form>
-        Nombre : {this.props.nombre}
         <Form.Group controlId = "peso">
-            <Form.Label>Peso (kilos)</Form.Label>
-            <Form.Control type = "number"/>
+            <Form.Label>Peso (kilogramos)</Form.Label>
+            <Form.Control type = "number" onKeyUp={this.handlerChangeIMC}/>
         </Form.Group>
         
         <Form.Group controlId = "altura">
-            <Form.Label>Altura (cm)</Form.Label>
-            <Form.Control type = "number"/>
+            <Form.Label>Altura (metros)</Form.Label>
+            <Form.Control type = "number" onKeyUp={this.handlerChangeIMC}/>
         </Form.Group>
-        <Button variant="link" onClick={() => this.props.calcularIMC(document.getElementById("peso").value,document.getElementById("altura").value)}>Calcular</Button>
+        <Button variant="link" onClick={() => this.props.calcularIMC(this.state.peso,this.state.altura)}>Calcular</Button>
       </Form>
     )
   }
