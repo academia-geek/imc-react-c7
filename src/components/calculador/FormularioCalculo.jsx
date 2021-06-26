@@ -21,7 +21,7 @@ class FormularioCalculo extends React.Component {
             <Form.Label>Altura (cm)</Form.Label>
             <Form.Control type = "number"/>
         </Form.Group>
-        <Button variant="link" onClick={() => alert("Calculando IMC")}>Calcular</Button>
+        <Button variant="link" onClick={() => this.props.calcularIMC(document.getElementById("peso").value,document.getElementById("altura").value)}>Calcular</Button>
       </Form>
     )
   }
